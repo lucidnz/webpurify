@@ -60,8 +60,8 @@ class Configuration {
 
   get endpoint() {
     const hosts = Object.keys(API_HOSTS);
-    const params_endpoint = this.params.endpoint || hosts.includes(this.params.endpoint);
-    const env_endpoint = ENV.endpoint || hosts.includes(ENV.endpoint);
+    const env_endpoint = ENV.WEBPURIFY_ENDPOINT || hosts.includes(ENV.endpoint) || ENV.endpoint;
+    const params_endpoint = hosts.includes(this.params.endpoint) || this.params.endpoint;
     return API_HOSTS[env_endpoint || params_endpoint || DEFAULT_PARAMS.endpoint];
   }
 
