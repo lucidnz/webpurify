@@ -31,7 +31,7 @@ This module allows simple interaction with the WebPurify API within Node.js. For
 
 # Install & Initialize #
 
-`npm install webpurify`
+`npm install lucidnz/webpurify`
 
 To initialize:
 
