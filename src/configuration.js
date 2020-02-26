@@ -49,7 +49,7 @@ export default class Configuration {
     const hosts = Object.keys(API_HOSTS);
     const params_endpoint = this.params.endpoint || hosts.includes(this.params.endpoint);
     const env_endpoint = ENV.endpoint || hosts.includes(ENV.endpoint);
-    return API_HOSTS[env_endpoint || params_endpoint || DEFAULT_PARAMS.endpoint];
+    return API_HOSTS[params_endpoint || env_endpoint || DEFAULT_PARAMS.endpoint];
   }
 
   get enterprise() {
