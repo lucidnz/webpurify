@@ -44,6 +44,7 @@ const WebPurify = require('webpurify');
 
 const wp = new WebPurify({
     api_key: ENV['WEBPURIFY_API_KEY']
+    //, customEndpoint: 'your-endpoint.webpurify.net' // Optional but likely necessary, overrides default.
     //, endpoint:   'us'  // Optional, available choices: 'eu', 'ap'. Default: 'us'.
     //, enterprise: false // Optional, set to true if you are using the enterprise API, allows SSL
 });
