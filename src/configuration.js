@@ -28,13 +28,11 @@ export default class Configuration {
   }
 
   get config() {
-    if (!this._options) {
-      this._config = {
-        api_key: this.api_key,
-        endpoint: this.endpoint,
-        enterprise: this.enterprise
-      };
-    }
+    this._config = {
+      api_key: this.api_key,
+      endpoint: this.endpoint,
+      enterprise: this.enterprise
+    };
     return this._config;
   }
 
@@ -47,9 +45,9 @@ export default class Configuration {
 
   get endpoint() {
     const hosts = Object.keys(API_HOSTS);
-    const env_endpoint = ENV.WEBPURIFY_ENDPOINT || hosts.includes(ENV.endpoint) || ENV.endpoint;
     const params_endpoint = hosts.includes(this.params.endpoint) || this.params.endpoint;
-    return API_HOSTS[env_endpoint || params_endpoint || DEFAULT_PARAMS.endpoint];
+    const env_endpoint = hosts.includes(ENV.endpoint) || ENV.endpoint;
+    return this.params.customEndpoint || API_HOSTS[params_endpoint || env_endpoint || DEFAULT_PARAMS.endpoint];
   }
 
   get enterprise() {
